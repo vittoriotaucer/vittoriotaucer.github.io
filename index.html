@@ -1,0 +1,64 @@
+---
+layout: null
+title: Vittorio Taucer
+description: Software Engineer working on AI, based in Milan.
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description }}">
+    <meta name="theme-color" content="#14120b">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  </head>
+
+  <body>
+    <main class="site-shell">
+      <article class="introduction" aria-labelledby="name">
+        <h1 id="name">Vittorio Taucer</h1>
+        <p>I was born in Trieste, Italy, and now live in Milan.</p>
+        <p>I work as a Software Engineer on AI.</p>
+      </article>
+
+      <section aria-labelledby="projects-heading">
+        <h2 id="projects-heading" class="section-heading">Projects</h2>
+        {% assign projects = site.projects | sort: "date" | reverse %}
+        {% if projects.size > 0 %}
+          <ul class="entry-list">
+            {% for project in projects %}
+              <li>
+                <a href="{{ project.url | relative_url }}">
+                  <span>{{ project.title }}</span>
+                  <time datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date: "%d/%m/%Y" }}</time>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <div class="empty-block" aria-label="No projects yet"></div>
+        {% endif %}
+      </section>
+
+      <section aria-labelledby="writing-heading">
+        <h2 id="writing-heading" class="section-heading">Writing</h2>
+        {% assign writing = site.writing | sort: "date" | reverse %}
+        {% if writing.size > 0 %}
+          <ul class="entry-list">
+            {% for article in writing %}
+              <li>
+                <a href="{{ article.url | relative_url }}">
+                  <span>{{ article.title }}</span>
+                  <time datetime="{{ article.date | date_to_xmlschema }}">{{ article.date | date: "%d/%m/%Y" }}</time>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <div class="empty-block" aria-label="No writing yet"></div>
+        {% endif %}
+      </section>
+    </main>
+  </body>
+</html>

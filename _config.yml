@@ -1,0 +1,30 @@
+title: Vittorio Taucer
+description: Software Engineer working on AI, based in Milan.
+url: https://vittoriotaucer.github.io
+baseurl: ""
+
+exclude:
+  - CONTENT_GUIDE.md
+  - Gemfile
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+    sort_by: date
+  writing:
+    output: true
+    permalink: /writing/:name/
+    sort_by: date
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: entry
+  - scope:
+      path: ""
+      type: writing
+    values:
+      layout: entry
